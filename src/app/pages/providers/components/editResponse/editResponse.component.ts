@@ -9,7 +9,30 @@ import { Component } from '@angular/core';
   styleUrls: ['./editResponse.scss']
 })
 export class EditResponse {
+  typeResponse: string = '';
+  limitRentry: string = '';
+  timeRentry: string = '';
+  valueReque: string = '';
+  emailNoti: string = '';
+  prov: string = '';
+  headerData = [];
+  bodyData = [];
 
   constructor() {
+  }
+
+  onPush() {
+  }
+
+  onPushHeader() {
+  }
+
+  onDeleteHeader() {
+  }
+
+  onPushBody() {
+  }
+
+  onDeleteBody() {
   }
 }

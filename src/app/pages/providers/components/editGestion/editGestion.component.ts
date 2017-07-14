@@ -16,10 +16,11 @@ export class EditGestion {
   prov: string = '';
   headerData = [];
   bodyData = [];
-  parameterInput: string = '';
-  typeValue: string = '';
-  valueDefault: string = '';
+  typeSecurity: string = '';
   valueReque: boolean = false;
+  urlEndpoint: string = '';
+  typeCall: string = '';
+  typeGestion: string = '';
 
   constructor(private modalService: NgbModal, private _routerA: ActivatedRoute, private _router: Router) {
     for (let _i = 0; _i < 5; _i++) {
@@ -46,7 +47,7 @@ export class EditGestion {
     });
   }
 
-  private onPush() {
+  onPush() {
     if (this.prov) {
       this._router.navigate(['/pages/providers/gestion/' + this.prov]);
     } else {
@@ -55,7 +56,7 @@ export class EditGestion {
 
   }
 
-  private onPushHeader() {
+  onPushHeader() {
     const activeModal = this.modalService.open(DefaultModalG, {
       size: 'lg',
       backdrop: 'static'
@@ -64,7 +65,7 @@ export class EditGestion {
     activeModal.componentInstance.titleBtn = 'Guardar';
   }
 
-  private onPushBody() {
+  onPushBody() {
     const activeModal = this.modalService.open(DefaultModalG, {
       size: 'lg',
       backdrop: 'static'
@@ -73,7 +74,7 @@ export class EditGestion {
     activeModal.componentInstance.titleBtn = 'Guardar';
   }
 
-  private onDeleteHeader(id) {
+  onDeleteHeader(id) {
     const activeModal = this.modalService.open(DeleteModalG, {
       size: 'sm',
       backdrop: 'static'
@@ -83,7 +84,7 @@ export class EditGestion {
     activeModal.componentInstance.modalContent = 'Desea eliminar el parametro ' + id + '?';
   }
 
-  private onDeleteBody(id) {
+  onDeleteBody(id) {
     const activeModal = this.modalService.open(DeleteModalG, {
       size: 'sm',
       backdrop: 'static'

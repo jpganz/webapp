@@ -29,7 +29,7 @@ export class List {
     }
   }
 
-  private onPush() {
+  onPush() {
     const activeModal = this.modalService.open(DefaultModal, {
       size: 'lg',
       backdrop: 'static'
@@ -38,7 +38,7 @@ export class List {
     activeModal.componentInstance.titleBtn = 'Guardar';
   }
 
-  private onUpdate(id) {
+  onUpdate(id) {
     const activeModal = this.modalService.open(DefaultModal, {
       size: 'lg',
       backdrop: 'static'
@@ -50,7 +50,7 @@ export class List {
     activeModal.componentInstance.providerDesc = 'Lorem Ipsum es simplemente el texto de relleno';
   }
 
-  private onDelete(id) {
+  onDelete(id) {
     const activeModal = this.modalService.open(DeleteModal, {
       size: 'sm',
       backdrop: 'static'
@@ -60,7 +60,7 @@ export class List {
     activeModal.componentInstance.modalContent = 'Desea eliminar el proveedor ' + id + '?';
   }
 
-  private onConfig(id) {
+  onConfig(id) {
     this._router.navigate(['/pages/providers/gestion/' + id]);
   }
 }

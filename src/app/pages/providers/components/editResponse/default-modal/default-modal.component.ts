@@ -11,9 +11,10 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 })
 
 export class DefaultModalER implements OnInit {
-  providerName: string = '';
-  providerCode: string = '';
-  providerDesc: string = '';
+  parameterInput: string = '';
+  typeValue: string = '';
+  valueDefault: string = '';
+  valueReque: string = '';
   titleBtn: string = '';
   modalHeader: string;
 
@@ -27,10 +28,8 @@ export class DefaultModalER implements OnInit {
     this.activeModal.close();
   }
 
-  saveData(){
-    console.log(this.providerName);
-    console.log(this.providerCode);
-    console.log(this.providerDesc);
+  saveData() {
+
     this.closeModal();
   }
 }
