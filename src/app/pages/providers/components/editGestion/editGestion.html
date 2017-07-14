@@ -1,0 +1,133 @@
+<div class="widgets">
+  <div class="row">
+    <div class="col-sm-12">
+      <h2>{{prov}}</h2>
+      <ba-card cardTitle="Configuraci&oacute;n del request de la gesti&oacute;n" baCardClass="with-scroll table-panel">
+        <div class="row">
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label for="urlEndpoint">URL del Endpoint</label>
+              <input type="text" class="form-control" [(ngModel)]="urlEndpoint" id="urlEndpoint"
+                     placeholder="URL del Endpoint">
+            </div>
+            <div class="form-group">
+              <label for="typeCall">Tipo de llamada</label>
+              <select class="form-control" [(ngModel)]="typeCall" id="typeCall">
+                <option>RestFul</option>
+                <option>SOAP</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="typeGestion">Tipo de gesti&oacute;n</label>
+              <select class="form-control" [(ngModel)]="typeGestion" id="typeGestion">
+                <option>ACTIVACI&Oacute;N / ALTA</option>
+                <option>BAJA</option>
+                <option>BAJA VOLUNTARIA</option>
+                <option>SUSPENSI&Oacute;N</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="typeSecurity">Tipo de seguridad</label>
+              <select class="form-control" [(ngModel)]="typeSecurity" id="typeSecurity">
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="row">
+              <div class="col-xlg-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3 add_button">
+                <h2>Header</h2>
+              </div>
+              <div
+                class="offset-xlg-5 offset-xl-5 offset-lg-5 offset-md-5 offset-sm-5 offset-xs-5 col-xlg-3
+                col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3 add_button">
+                <button type="button" (click)="onPushHeader()" class="btn btn-primary btn-block">Agregar campo
+                </button>
+              </div>
+            </div>
+            <br>
+            <table class="table">
+              <thead>
+              <tr>
+                <th>Nombre del parametro</th>
+                <th>Tipo de valor</th>
+                <th>Valor por defecto</th>
+                <th>Parametro obligatorio?</th>
+                <th>Opci&oacute;n</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let item of headerData">
+                <td>{{ item.name }}</td>
+                <td>{{ item.type }}</td>
+                <td>{{ item.value }}</td>
+                <td>{{ item.required ? 'Si' : 'No'}}</td>
+                <td>
+                  <button type="button" (click)="onDeleteHeader(item.id)" class="btn btn-danger btn-icon"><i
+                    class="ion-trash-a"></i>
+                  </button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="row">
+              <div class="col-xlg-3 col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3 add_button">
+                <h2>Body</h2>
+              </div>
+              <div
+                class="offset-xlg-5 offset-xl-5 offset-lg-5 offset-md-5 offset-sm-5 offset-xs-5 col-xlg-3
+                col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-3 add_button">
+                <button type="button" (click)="onPushBody()" class="btn btn-primary btn-block">Agregar campo
+                </button>
+              </div>
+            </div>
+            <br>
+            <table class="table">
+              <thead>
+              <tr>
+                <th>Nombre del parametro</th>
+                <th>Tipo de valor</th>
+                <th>Valor por defecto</th>
+                <th>Parametro obligatorio?</th>
+                <th>Opci&oacute;n</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let item of bodyData">
+                <td>{{ item.name }}</td>
+                <td>{{ item.type }}</td>
+                <td>{{ item.value }}</td>
+                <td>{{ item.required ? 'Si' : 'No'}}</td>
+                <td>
+                  <button type="button" (click)="onDeleteBody(item.id)" class="btn btn-danger btn-icon"><i
+                    class="ion-trash-a"></i>
+                  </button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="row">
+          <div
+            class="offset-xlg-4 offset-xl-4 offset-lg-4 offset-md-4 offset-sm-4 offset-xs-4 col-xlg-4
+                col-xl-3 col-lg-4 col-md-4 col-sm-4 col-xs-4 add_button">
+            <button type="button" (click)="onPush()" class="btn btn-info btn-block">Guardar
+            </button>
+          </div>
+        </div>
+      </ba-card>
+    </div>
+  </div>
+</div>
