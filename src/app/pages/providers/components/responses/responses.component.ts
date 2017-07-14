@@ -13,7 +13,7 @@ import { DeleteModalRes } from './delete-modal/delete-modal.component';
 })
 export class Responses {
   responsesData = [];
-  private prov: string = '';
+  prov: string = '';
 
   constructor(private _routerA: ActivatedRoute, private modalService: NgbModal, private _router: Router) {
     for (let _i = 0; _i < 10; _i++) {
@@ -32,15 +32,15 @@ export class Responses {
     });
   }
 
-  private onPush() {
+  onPush() {
     this._router.navigate(['/pages/providers/editResponse/']);
   }
 
-  private onUpdate(id) {
+  onUpdate(id) {
     this._router.navigate(['/pages/providers/editResponse/' + id]);
   }
 
-  private onDelete(id) {
+  onDelete(id) {
     const activeModal = this.modalService.open(DeleteModalRes, {
       size: 'sm',
       backdrop: 'static'
@@ -49,5 +49,5 @@ export class Responses {
     activeModal.componentInstance.titleBtn = 'Elimiar';
     activeModal.componentInstance.modalContent = 'Desea eliminar el response ' + id + '?';
   }
-  
+
 }
