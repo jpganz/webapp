@@ -16,7 +16,7 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class Gestions {
   gestionData = [];
-  private prov: string = '';
+  prov: string = '';
 
   constructor(private _routerA: ActivatedRoute, private modalService: NgbModal, private _router: Router) {
     for (let _i = 0; _i < 10; _i++) {
@@ -35,15 +35,15 @@ export class Gestions {
     });
   }
 
-  private onPush() {
+  onPush() {
     this._router.navigate(['/pages/providers/editGestion/']);
   }
 
-  private onUpdate(id) {
+  onUpdate(id) {
     this._router.navigate(['/pages/providers/editGestion/' + id]);
   }
 
-  private onDelete(id) {
+  onDelete(id) {
     const activeModal = this.modalService.open(DeleteModalGe, {
       size: 'sm',
       backdrop: 'static'
@@ -53,7 +53,7 @@ export class Gestions {
     activeModal.componentInstance.modalContent = 'Desea eliminar la gestion ' + id + '?';
   }
 
-  private onConfig(id) {
+  onConfig(id) {
     this._router.navigate(['/pages/providers/responses/' + id]);
   }
 }

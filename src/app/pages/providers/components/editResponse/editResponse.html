@@ -105,8 +105,8 @@
         <div class="row">
           <div class="col-sm-6">
             <div class="form-group">
-              <label for="urlEndpoint">Notificar por email</label>
-              <input type="text" class="form-control" [(ngModel)]="emailNoti" id="urlEndpoint"
+              <label for="emailNoti">Notificar por email</label>
+              <input type="text" class="form-control" [(ngModel)]="emailNoti" id="emailNoti"
                      placeholder="Email para notificar">
               <span class="help-block sub-little-text">Separar cada direcci&oacute;n de email por comas</span>
             </div>
@@ -124,13 +124,13 @@
         <div class="row">
           <div class="col-sm-6">
             <div class="form-group">
-              <label for="urlEndpoint">Limites de reintento</label>
-              <input type="text" class="form-control" [(ngModel)]="emailNoti" id="urlEndpoint"
+              <label for="limitRentry">Limites de reintento</label>
+              <input type="text" class="form-control" [(ngModel)]="limitRentry" id="limitRentry"
                      placeholder="# de intentos">
             </div>
             <div class="form-group">
-              <label for="urlEndpoint">Tiempo entre intentos</label>
-              <input type="text" class="form-control" [(ngModel)]="emailNoti" id="urlEndpoint"
+              <label for="timeRentry">Tiempo entre intentos</label>
+              <input type="text" class="form-control" [(ngModel)]="timeRentry" id="timeRentry"
                      placeholder="# horas / horas">
             </div>
           </div>
