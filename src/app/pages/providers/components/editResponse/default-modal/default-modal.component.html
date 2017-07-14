@@ -1,0 +1,38 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h4 class="modal-title">{{modalHeader}}</h4>
+    <button class="close" aria-label="Close" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="form-group">
+      <label for="parameterInput">Nombre del parametro</label>
+      <input type="text" class="form-control" [(ngModel)]="parameterInput" id="parameterInput"
+             placeholder="Nombre del parametro">
+    </div>
+    <div class="form-group">
+      <label for="typeValue">Tipo de valor</label>
+      <select class="form-control" [(ngModel)]="typeValue" id="typeValue">
+        <option>STRING</option>
+        <option>INTEGER</option>
+        <option>DECIMAL</option>
+        <option>FLOAT</option>
+        <option>BOOL</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="valueDefault">Valor por defecto</label>
+      <input type="text" class="form-control" [(ngModel)]="valueDefault" id="valueDefault"
+             placeholder="Valor por defecto">
+    </div>
+    <div class="checkbox">
+      <ba-checkbox [(ngModel)]="valueReque" [label]="'Parametro obligatorio?'"
+                   [ngModelOptions]="{standalone: true}"></ba-checkbox>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary confirm-btn" (click)="saveData()">{{titleBtn}}</button>
+    <button class="btn btn-danger confirm-btn" (click)="closeModal()">Cancelar</button>
+  </div>
+</div>
