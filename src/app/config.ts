@@ -20,5 +20,9 @@ export class AppConfig {
   public static API_PROVIDER_COMMAND_REQUEST = '/provider-command-requests';
   public static API_PROVIDER_COMMAND = '/provider-commands';
   public static API_PROVIDER_RESPONSES = '/provider-responses';
+  public static API_REQUEST_PARAMETER = '/request-parameters';
+  public static API_REQUEST = '/request';
+  public static API_REQUEST_TRY = '/request-tries';
+  public static API_RESPONCE_PARAMETER = '/response-parameters';
 }
 
