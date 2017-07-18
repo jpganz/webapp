@@ -32,7 +32,7 @@ export class AccountService {
       });
   }
 
-  postAccount(id: number, login: string, firstName: string, lastName: string, email: string, imageUrl: string, activated: boolean, langKey: string, createdBy: string, createdDate: string, lastModifiedBy: string, lastModifiedDate: string, authorities: string[]):Observable<Response>{
+  postAccount(id: string, login: string, firstName: string, lastName: string, email: string, imageUrl: string, activated: boolean, langKey: string, createdBy: string, createdDate: string, lastModifiedBy: string, lastModifiedDate: string, authorities: string[]):Observable<Response>{
     let body = JSON.stringify(
       {
         'id': id,
@@ -88,7 +88,7 @@ export class AccountService {
      });
   }
 
-  postRegister(password:string, id: number, login: string, firstName: string, lastName: string, email: string, imageUrl: string, activated: boolean, langKey: string, createdBy: string, createdDate: string, lastModifiedBy: string, lastModifiedDate: string, authorities: string[]): Observable<Response>{
+  postRegister(password:string, id: string, login: string, firstName: string, lastName: string, email: string, imageUrl: string, activated: boolean, langKey: string, createdBy: string, createdDate: string, lastModifiedBy: string, lastModifiedDate: string, authorities: string[]): Observable<Response>{
     let body = JSON.stringify(
       {
         'id': id,

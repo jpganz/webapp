@@ -60,7 +60,7 @@ export class CommunicationService {
       });
   }
 
-  DeleteCommunication(id: string): Observable<Response>{
+  deleteCommunication(id: string): Observable<Response>{
     let body = JSON.stringify({
       'id' : id
     });

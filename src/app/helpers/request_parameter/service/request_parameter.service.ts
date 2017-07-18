@@ -75,7 +75,7 @@ export class RequestParameterService {
       });
   }
 
-  getCommandsId(id: string): Observable<RequestParameterModel>{
+  getRequestParameterId(id: string): Observable<RequestParameterModel>{
     return this.http.get(AppConfig.API_BASE_URL + AppConfig.API + AppConfig.API_REQUEST_PARAMETER + '/' + id, this.options)
       .map((response: Response) => {
         const res = response.json();

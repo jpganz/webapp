@@ -80,7 +80,7 @@ export class Requestervice {
       });
   }
 
-  getCommandsId(id: string): Observable<RequestModel>{
+  getRequestId(id: string): Observable<RequestModel>{
     return this.http.get(AppConfig.API_BASE_URL + AppConfig.API + AppConfig.API_REQUEST + '/' + id, this.options)
       .map((response: Response) => {
         const res = response.json();

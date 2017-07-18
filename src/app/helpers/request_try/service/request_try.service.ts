@@ -70,7 +70,7 @@ export class RequestTryService {
       });
   }
 
-  getCommandsId(id: string): Observable<RequestTryModel>{
+  getRequestTryId(id: string): Observable<RequestTryModel>{
     return this.http.get(AppConfig.API_BASE_URL + AppConfig.API + AppConfig.API_REQUEST_TRY + '/' + id, this.options)
       .map((response: Response) => {
         const res = response.json();

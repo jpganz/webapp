@@ -4,7 +4,7 @@
 export class AppConfig {
   //public static API_BASE_URL = 'http://34.211.142.113:7070/ovas2/';
   //public static API_BASE_URL = 'http://localhost:8080';
-  public static API_BASE_URL = 'http://192.168.0.101:8080';
+  public static API_BASE_URL = 'http://192.168.0.102:8080';
   public static API = '/api';
   public static API_COMMAND = '/commands';
   public static API_PROVIDER = '/providers';
@@ -24,5 +24,10 @@ export class AppConfig {
   public static API_REQUEST = '/request';
   public static API_REQUEST_TRY = '/request-tries';
   public static API_RESPONCE_PARAMETER = '/response-parameters';
+  public static API_SERVICE_SECURITY = '/service-securities';
+  public static API_TRY_PARAMETER = '/try-parameters';
+  public static API_TRY_RESPONSE_PARAMETER = '/try-response-parameters';
+  public static API_USER = '/users';
+  public static API_USER_AUTHORITIES = '/authorities';
 }
 

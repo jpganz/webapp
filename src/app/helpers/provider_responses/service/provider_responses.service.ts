@@ -76,7 +76,7 @@ export class ProviderResponsesService {
       });
   }
 
-  getCommandsId(id: string): Observable<ProviderResponsesModel>{
+  getProviderResponsesId(id: string): Observable<ProviderResponsesModel>{
     return this.http.get(AppConfig.API_BASE_URL + AppConfig.API + AppConfig.API_PROVIDER_RESPONSES + '/' + id, this.options)
       .map((response: Response) => {
         const item = response.json();
