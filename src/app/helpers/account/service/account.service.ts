@@ -8,7 +8,6 @@ import 'rxjs/add/operator/map';
 
 import { AppConfig } from '../../../config';
 import { AccountModel } from '../account';
-import {observableToBeFn} from "rxjs/testing/TestScheduler";
 
 @Injectable()
 export class AccountService {
@@ -27,12 +26,15 @@ export class AccountService {
     return this.http.get(AppConfig.API_BASE_URL + AppConfig.API + AppConfig.API_ACCOUNT, this.options)
       .map((response: Response) => {
         const res = response.json();
-        this.account = new AccountModel(res.id, res.login, res.firstName, res.lastName,res.email, res.imageUrl, res.activated, res.langKey, res.createdBy, res.createdDate, res.lastModifiedBy, res.lastModifiedDate, res.authorities);
+        this.account = new AccountModel(res.id, res.login, res.firstName, res.lastName, res.email, res.imageUrl,
+          res.activated, res.langKey, res.createdBy, res.createdDate, res.lastModifiedBy, res.lastModifiedDate,
+          res.authorities);
         return this.account;
       });
   }
-
-  postAccount(id: string, login: string, firstName: string, lastName: string, email: string, imageUrl: string, activated: boolean, langKey: string, createdBy: string, createdDate: string, lastModifiedBy: string, lastModifiedDate: string, authorities: string[]):Observable<Response>{
+  postAccount(id: number, login: string, firstName: string, lastName: string, email: string, imageUrl: string,
+              activated: boolean, langKey: string, createdBy: string, createdDate: string, lastModifiedBy: string,
+              lastModifiedDate: string, authorities: string[]): Observable<Response> {
     let body = JSON.stringify(
       {
         'id': id,
@@ -57,38 +59,43 @@ export class AccountService {
       });
   }
 
-  postChangePassword(password: string): Observable<Response>{
-      let body = JSON.stringify({
-        'password' : password
-      });
-      return this.http.post(AppConfig.API_BASE_URL + AppConfig.API + AppConfig.API_ACCOUNT + AppConfig.API_CHANGE_PASSWORD, body, this.options)
-        .map((response: Response) => {
-          return response;
+  postChangePassword(password: string): Observable<Response> {
+    let body = JSON.stringify({
+      'password': password
+    });
+    return this.http.post(AppConfig.API_BASE_URL + AppConfig.API + AppConfig.API_ACCOUNT +
+      AppConfig.API_CHANGE_PASSWORD, body, this.options)
+      .map((response: Response) => {
+        return response;
       });
   }
 
-  postReset_passwordFinish(key: string, newPassword: string): Observable<Response>{
+  postReset_passwordFinish(key: string, newPassword: string): Observable<Response> {
     let body = JSON.stringify({
       'key': key,
-      'newPassword' : newPassword
+      'newPassword': newPassword
     });
-    return this.http.post(AppConfig.API_BASE_URL + AppConfig.API + AppConfig.API_ACCOUNT + AppConfig.API_RESET_PASSWORD, body, this.options)
+    return this.http.post(AppConfig.API_BASE_URL + AppConfig.API + AppConfig.API_ACCOUNT +
+      AppConfig.API_RESET_PASSWORD, body, this.options)
       .map((response: Response) => {
         return response;
       });
   }
 
-  postReset_passwordInit(mail: string): Observable<Response>{
+  postReset_passwordInit(mail: string): Observable<Response> {
     let body = JSON.stringify({
-      'mail' : mail
+      'mail': mail
     });
-    return this.http.post(AppConfig.API_BASE_URL + AppConfig.API + AppConfig.API_ACCOUNT + AppConfig.API_RESET_PASSWORDINIT, body, this.options)
+    return this.http.post(AppConfig.API_BASE_URL + AppConfig.API + AppConfig.API_ACCOUNT +
+      AppConfig.API_RESET_PASSWORDINIT, body, this.options)
       .map((response: Response) => {
         return response;
-     });
+      });
   }
 
-  postRegister(password:string, id: string, login: string, firstName: string, lastName: string, email: string, imageUrl: string, activated: boolean, langKey: string, createdBy: string, createdDate: string, lastModifiedBy: string, lastModifiedDate: string, authorities: string[]): Observable<Response>{
+  postRegister(password: string, id: number, login: string, firstName: string, lastName: string, email: string,
+               imageUrl: string, activated: boolean, langKey: string, createdBy: string, createdDate: string,
+               lastModifiedBy: string, lastModifiedDate: string, authorities: string[]): Observable<Response> {
     let body = JSON.stringify(
       {
         'id': id,
@@ -104,7 +111,7 @@ export class AccountService {
         'lastModifiedBy': lastModifiedBy,
         'lastModifiedDate': lastModifiedDate,
         'authorities': authorities,
-        'password' : password
+        'password': password
       }
     );
 
@@ -114,16 +121,16 @@ export class AccountService {
       });
   }
 
-  getAuthenticate(): Observable<Response>{
+  getAuthenticate(): Observable<Response> {
     return this.http.get(AppConfig.API_BASE_URL + AppConfig.API + AppConfig.API_AUTHENTICATE, this.options)
       .map((response: Response) => {
         return response;
       });
   }
 
-  getActivate(key: string): Observable<Response>{
+  getActivate(key: string): Observable<Response> {
     let body = JSON.stringify({
-      'key' : key
+      'key': key
     });
     return this.http.get(AppConfig.API_BASE_URL + AppConfig.API + AppConfig.API_ACTIVATE + '?key=' + key, this.options)
       .map((response: Response) => {
