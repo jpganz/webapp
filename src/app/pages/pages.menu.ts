@@ -24,7 +24,17 @@ export const PAGES_MENU = [
             expanded: false,
             order: 0
           }
-        }
+        },
+        children: [
+          {
+            path: 'system',
+            data: {
+              menu: {
+                title: 'Parametros',
+                icon: 'ion-gear-b'
+              }
+            }
+          }]
       },
       {
         path: 'providers',

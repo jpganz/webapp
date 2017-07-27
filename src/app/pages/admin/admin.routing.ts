@@ -5,11 +5,15 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { ModuleWithProviders } from '@angular/core';
 import { Admin } from './admin.component';
+import { Systemparameters } from './components/system_parameters/system_parameters.component';
 
 export const routes: Routes = [
   {
-    path: '/admin',
+    path: '',
     component: Admin,
+    children: [
+      {path: 'system', component: Systemparameters }
+    ]
   }
 ];
 
