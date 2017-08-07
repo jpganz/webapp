@@ -3,12 +3,12 @@ import { Router, Routes } from '@angular/router';
 
 import { BaMenuService } from '../theme';
 import { PAGES_MENU } from './pages.menu';
-import { ProvidersService } from '../helpers/providers/service/providers.service';
 import { SessionAuthService } from '../helpers/sessionAuth/sessionAuth.service';
+import { AccountService } from '../helpers/account/service/account.service';
 
 @Component({
   selector: 'pages',
-  providers: [ProvidersService, SessionAuthService],
+  providers: [SessionAuthService, AccountService],
   template: `
     <ba-sidebar></ba-sidebar>
     <ba-page-top></ba-page-top>
@@ -25,10 +25,10 @@ export class Pages {
   private tk: string = '';
   private rol: string = '';
 
-  constructor(private _router: Router, private _menuService: BaMenuService,
-              private _prov: ProvidersService, private _auth: SessionAuthService) {
+  constructor(private _router: Router, private _menuService: BaMenuService, private _session: SessionAuthService,
+              private _auth: AccountService) {
 
-    let getToken = this._auth.getToken();
+    let getToken = this._session.getToken();
     if (typeof getToken !== 'undefined' && getToken !== 'undefined' && getToken.length >= 4) {
       this.tk = JSON.parse(getToken);
       if (this.tk == null) {
@@ -40,7 +40,9 @@ export class Pages {
   }
 
   ngOnInit() {
-    this._prov.getProviders().subscribe(res => console.log(res));
+    //this._prov.getProviders().subscribe(res => console.log(res));
     this._menuService.updateMenuByRoutes(<Routes>PAGES_MENU);
+
+    this._auth.getAccount().subscribe(res => console.log(res));
   }
 }
