@@ -94,25 +94,14 @@ export class AccountService {
       });
   }
 
-  postRegister(password: string, id: number, login: string, firstName: string, lastName: string, email: string,
-               imageUrl: string, activated: boolean, langKey: string, createdBy: string, createdDate: string,
-               lastModifiedBy: string, lastModifiedDate: string, authorities: string[]): Observable<Response> {
+  postRegister(login: string, email: string,
+               password: string): Observable<Response> {
     let body = JSON.stringify(
       {
-        'id': id,
         'login': login,
-        'firstName': firstName,
-        'lastName': lastName,
         'email': email,
-        'imageUrl': imageUrl,
-        'activated': activated,
-        'langKey': langKey,
-        'createdBy': createdBy,
-        'createdDate': createdDate,
-        'lastModifiedBy': lastModifiedBy,
-        'lastModifiedDate': lastModifiedDate,
-        'authorities': authorities,
-        'password': password
+        'password': password,
+        'langKey': 'en'
       }
     );
 

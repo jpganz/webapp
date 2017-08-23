@@ -32,7 +32,6 @@ export class Login {
   }
 
   ngOnInit() {
-    this._auth.getAccount().subscribe(res => console.log(res));
     let getToken = this._session.getToken();
     if (typeof getToken !== 'undefined' && getToken !== 'undefined' && getToken.length >= 4) {
       this.tk = JSON.parse(getToken);
@@ -49,10 +48,10 @@ export class Login {
   public onSubmit(values: Object): void {
     this.submitted = true;
     if (this.form.valid) {
-      if (this.email.value === 'admin@tigo.ninja.gt') {
-        this._session.putToken(this.password.value);
-        this._router.navigate(['/pages/dashboard']);
-      }
+
+      this._session.putToken(this.password.value);
+      this._router.navigate(['/pages/dashboard']);
+
     }
   }
 }

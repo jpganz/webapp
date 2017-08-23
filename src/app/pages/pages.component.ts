@@ -4,11 +4,11 @@ import { Router, Routes } from '@angular/router';
 import { BaMenuService } from '../theme';
 import { PAGES_MENU } from './pages.menu';
 import { SessionAuthService } from '../helpers/sessionAuth/sessionAuth.service';
-import { AccountService } from '../helpers/account/service/account.service';
+import { ProvidersService } from '../helpers/providers/service/providers.service';
 
 @Component({
   selector: 'pages',
-  providers: [SessionAuthService, AccountService],
+  providers: [SessionAuthService, ProvidersService],
   template: `
     <ba-sidebar></ba-sidebar>
     <ba-page-top></ba-page-top>
@@ -26,7 +26,7 @@ export class Pages {
   private rol: string = '';
 
   constructor(private _router: Router, private _menuService: BaMenuService, private _session: SessionAuthService,
-              private _auth: AccountService) {
+              private _prov: ProvidersService) {
 
     let getToken = this._session.getToken();
     if (typeof getToken !== 'undefined' && getToken !== 'undefined' && getToken.length >= 4) {
@@ -40,9 +40,6 @@ export class Pages {
   }
 
   ngOnInit() {
-    //this._prov.getProviders().subscribe(res => console.log(res));
     this._menuService.updateMenuByRoutes(<Routes>PAGES_MENU);
-
-    this._auth.getAccount().subscribe(res => console.log(res));
   }
 }

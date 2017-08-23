@@ -6,28 +6,34 @@ import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DefaultModal } from './default-modal/default-modal.component';
 import { DeleteModal } from './delete-modal/delete-modal.component';
 import { Router } from '@angular/router';
+import { ProvidersService } from '../../../../helpers/providers/service/providers.service';
 
 @Component({
   selector: 'list',
   templateUrl: './list.html',
-  styleUrls: ['./list.scss']
+  styleUrls: ['./list.scss'],
+  providers: [ProvidersService]
 })
 export class List {
 
   providerData = [];
 
-  constructor(private modalService: NgbModal, private _router: Router) {
-    for (let _i = 0; _i < 10; _i++) {
-      this.providerData.push({
-        id: _i,
-        name: 'Tigo post',
-        description: 'Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. ' +
-        'Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un ' +
-        'impresor ',
-        code: 'TIGOPOST'
-      });
-    }
+  constructor(private modalService: NgbModal, private _router: Router, private _prov: ProvidersService) {
   }
+
+  ngOnInit() {
+    this._prov.getProviders().subscribe(res => {
+      for (let entry of res) {
+        this.providerData.push({
+          id: entry.id,
+          name: entry.name,
+          description: entry.description,
+          code: entry.code
+        });
+      }
+    });
+  }
+
 
   onPush() {
     const activeModal = this.modalService.open(DefaultModal, {
@@ -36,7 +42,16 @@ export class List {
     });
     activeModal.componentInstance.modalHeader = 'Nuevo proveedor';
     activeModal.componentInstance.titleBtn = 'Guardar';
+    let providerName = activeModal.componentInstance.providerName;
+    let providerCode = activeModal.componentInstance.providerCode;
+    let providerDesc = activeModal.componentInstance.providerDesc;
+    console.log(providerName);
   }
+
+  onLinkClick($event: any) {
+    console.log($event);
+  }
+
 
   onUpdate(id) {
     const activeModal = this.modalService.open(DefaultModal, {
@@ -45,9 +60,10 @@ export class List {
     });
     activeModal.componentInstance.modalHeader = 'Editar proveedor';
     activeModal.componentInstance.titleBtn = 'Actualizar';
-    activeModal.componentInstance.providerName = 'Juan';
-    activeModal.componentInstance.providerCode = 'JL';
-    activeModal.componentInstance.providerDesc = 'Lorem Ipsum es simplemente el texto de relleno';
+    let provider: any = this.providerData.find(x => x.id === id);
+    activeModal.componentInstance.providerName = provider.name;
+    activeModal.componentInstance.providerCode = provider.code;
+    activeModal.componentInstance.providerDesc = provider.description;
   }
 
   onDelete(id) {
@@ -56,8 +72,9 @@ export class List {
       backdrop: 'static'
     });
     activeModal.componentInstance.modalHeader = 'Elimiar proveedor';
+    let provider: any = this.providerData.find(x => x.id === id);
     activeModal.componentInstance.titleBtn = 'Elimiar';
-    activeModal.componentInstance.modalContent = 'Desea eliminar el proveedor ' + id + '?';
+    activeModal.componentInstance.modalContent = 'Desea eliminar el proveedor ' + provider.name + '?';
   }
 
   onConfig(id) {
