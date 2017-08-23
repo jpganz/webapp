@@ -28,9 +28,6 @@ export class DefaultModal implements OnInit {
   }
 
   saveData(){
-    console.log(this.providerName);
-    console.log(this.providerCode);
-    console.log(this.providerDesc);
     this.closeModal();
   }
 }

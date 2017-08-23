@@ -21,7 +21,7 @@
     </div>
   </div>
   <div class="modal-footer">
-    <button class="btn btn-primary confirm-btn" (click)="saveData()">{{titleBtn}}</button>
+    <button class="btn btn-primary confirm-btn" (selectChange)="onLinkClick($event)" (click)="saveData()">{{titleBtn}}</button>
     <button class="btn btn-danger confirm-btn" (click)="closeModal()">Cancelar</button>
   </div>
 </div>

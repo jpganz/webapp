@@ -19,7 +19,9 @@ export class AccountModel {
 
 
 
-  constructor(id: string, login: string, firstName: string, lastName: string, email: string, imageUrl: string, activated: boolean, langKey: string, createdBy: string, createdDate: string, lastModifiedBy: string, lastModifiedDate: string, authorities: string[]) {
+  constructor(id: string, login: string, firstName: string, lastName: string, email: string,
+              imageUrl: string, activated: boolean, langKey: string, createdBy: string,
+              createdDate: string, lastModifiedBy: string, lastModifiedDate: string, authorities: string[]) {
     this.id = id;
     this.login = login;
     this.firstName = firstName;
