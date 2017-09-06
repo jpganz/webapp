@@ -28,15 +28,7 @@ export class Pages {
   constructor(private _router: Router, private _menuService: BaMenuService, private _session: SessionAuthService,
               private _prov: ProvidersService) {
 
-    let getToken = this._session.getToken();
-    if (typeof getToken !== 'undefined' && getToken !== 'undefined' && getToken.length >= 4) {
-      this.tk = JSON.parse(getToken);
-      if (this.tk == null) {
-        this._router.navigate(['/']);
-      }
-    } else {
-      this._router.navigate(['/']);
-    }
+    this._session.validateSession();
   }
 
   ngOnInit() {

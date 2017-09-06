@@ -34,6 +34,24 @@ export const PAGES_MENU = [
                 icon: 'ion-gear-b'
               }
             }
+          },
+          {
+            path: 'usersadm',
+            data: {
+              menu: {
+                title: 'Usuarios',
+                icon: 'ion-gear-b'
+              }
+            }
+          },
+          {
+            path: 'role',
+            data: {
+              menu: {
+                title: 'Roles',
+                icon: 'ion-gear-b'
+              }
+            }
           }]
       },
       {

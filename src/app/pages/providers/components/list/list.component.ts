@@ -7,21 +7,24 @@ import { DefaultModal } from './default-modal/default-modal.component';
 import { DeleteModal } from './delete-modal/delete-modal.component';
 import { Router } from '@angular/router';
 import { ProvidersService } from '../../../../helpers/providers/service/providers.service';
+import { SessionAuthService } from '../../../../helpers/sessionAuth/sessionAuth.service';
 
 @Component({
   selector: 'list',
   templateUrl: './list.html',
   styleUrls: ['./list.scss'],
-  providers: [ProvidersService]
+  providers: [ProvidersService, SessionAuthService]
 })
 export class List {
 
   providerData = [];
 
-  constructor(private modalService: NgbModal, private _router: Router, private _prov: ProvidersService) {
+  constructor(private modalService: NgbModal, private _router: Router,
+              private _prov: ProvidersService, private _session: SessionAuthService) {
   }
 
   ngOnInit() {
+    this._session.validateSession();
     this._prov.getProviders().subscribe(res => {
       for (let entry of res) {
         this.providerData.push({

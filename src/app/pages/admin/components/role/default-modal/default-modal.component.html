@@ -1,0 +1,61 @@
+<div class="modal-content">
+  <div class="modal-header">
+    <h4 class="modal-title">{{modalHeader}}</h4>
+    <button class="close" aria-label="Close" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="form-group">
+      <label for="rolename">Nombre del rol</label>
+      <input type="text" class="form-control" [(ngModel)]="rolename" id="rolename"
+             placeholder="Nombre del rol">
+    </div>
+    <!--name="isproviders" [(ngModel)]="role.isproviders"-->
+    <div class="form-group">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox">
+          Gestionar proveedores
+        </label>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox">
+          Gestionar reportes
+        </label>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox">
+          Gestionar usuarios
+        </label>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox">
+          Gestionar roles
+        </label>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox">
+          Gestionar parametros
+        </label>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary confirm-btn" (selectChange)="onLinkClick($event)" (click)="saveData()">{{titleBtn}}
+    </button>
+    <button class="btn btn-danger confirm-btn" (click)="closeModal()">Cancelar</button>
+  </div>
+</div>

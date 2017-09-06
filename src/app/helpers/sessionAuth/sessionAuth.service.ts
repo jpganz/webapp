@@ -1,12 +1,26 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { CookieOptions, CookieService } from 'ngx-cookie';
-import * as moment from 'moment';
 
 
 @Injectable()
 export class SessionAuthService {
   constructor(private _cookieService: CookieService, private _router: Router) {
+  }
+
+  validateSession(): void {
+    let getToken = this.getToken();
+    if (typeof getToken !== 'undefined' && getToken !== 'undefined' && getToken.length >= 4) {
+
+      if (getToken == null) {
+        this._router.navigate(['/']);
+      } else {
+        this._router.navigate(['/pages/dashboard']);
+      }
+    } else {
+      this._router.navigate(['/']);
+    }
+
   }
 
   public logout(): void {

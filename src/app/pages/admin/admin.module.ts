@@ -10,6 +10,13 @@ import { Systemparameters } from './components/system_parameters/system_paramete
 
 import { routing } from './admin.routing';
 import { Admin } from './admin.component';
+import { UsersComponents } from './components/users/users.components';
+import { RoleComponent } from './components/role/role.component';
+import { DefaultModalRole } from './components/role/default-modal/default-modal.component';
+import { DeleteModalRole } from './components/role/delete-modal/delete-modal.component';
+import { NgbModalModule } from '@ng-bootstrap/ng-bootstrap';
+import { DefaultModalUser } from './components/users/default-modal/default-modal.component';
+import { DeleteModalUser } from './components/users/delete-modal/delete-modal.component';
 
 @NgModule({
   imports: [
@@ -17,11 +24,24 @@ import { Admin } from './admin.component';
     FormsModule,
     AppTranslationModule,
     NgaModule,
+    NgbModalModule,
     routing
   ],
   declarations: [
     Admin,
-    Systemparameters
+    Systemparameters,
+    UsersComponents,
+    RoleComponent,
+    DefaultModalRole,
+    DeleteModalRole,
+    DefaultModalUser,
+    DeleteModalUser
+  ],
+  entryComponents: [
+    DefaultModalRole,
+    DeleteModalRole,
+    DefaultModalUser,
+    DeleteModalUser
   ]
 })
 export class AdminModule {

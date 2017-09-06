@@ -2,12 +2,14 @@
  * Created by juanlopez on 12/07/17.
  */
 export class AppConfig {
-  // public static API_BASE_URL = 'http://34.211.142.113:7070/ovas2/';
-  public static API_BASE_URL = 'http://localhost:8080';
+  public static API_BASE_URL = 'http://34.211.142.113:7070/ovas';
+  //public static API_BASE_URL = 'http://localhost:8080';
   // public static API_BASE_URL = 'http://192.168.0.102:8080';
   public static API = '/api';
   public static API_COMMAND = '/commands';
   public static API_PROVIDER = '/providers';
+  public static API_OAUTH = '/oauth';
+  public static API_TOKEN = '/token';
   public static API_ACCOUNT = '/account';
   public static API_CHANGE_PASSWORD = '/change_password';
   public static API_RESET_PASSWORD = '/reset_password/finish';
